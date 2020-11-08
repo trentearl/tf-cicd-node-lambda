@@ -18,3 +18,12 @@ module "lambda_pipeline" {
 }
 ```
 
+You can add build specific environment variables by runnng terraform like:
+
+`terraform apply -var="codebuild_env_variables=$codebuild_env_variables"`
+
+where `$codebuild_env_variables` is actual json like:
+
+`[{"name": "KEY", "value": "my value"}]`
+
+
