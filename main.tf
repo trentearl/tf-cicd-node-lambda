@@ -2,6 +2,10 @@ resource "aws_s3_bucket" "build_artifact_bucket" {
   bucket        = "${var.label}-artifact-bucket"
   acl           = "private"
   force_destroy = var.force_artifact_destroy
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_kms_key" "artifact_encryption_key" {
